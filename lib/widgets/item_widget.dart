@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import '../models/catalog.dart';
 
 class ItemWidget extends StatelessWidget {
@@ -18,6 +17,7 @@ class ItemWidget extends StatelessWidget {
       // elevation: 10.0,
       child: ListTile(
         onTap: () {
+          // ignore: avoid_print
           print("${item.name} pressed");
         },
         leading: Image.network(item.image),
