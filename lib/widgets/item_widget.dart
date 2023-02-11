@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import '../models/catalog.dart';
 
 class ItemWidget extends StatelessWidget {
@@ -9,12 +10,11 @@ class ItemWidget extends StatelessWidget {
     Key? key,
     required this.item,
   }) : super(key: key);
-  // : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      // elevation: 10.0,
+      elevation: 10.0,
       child: ListTile(
         onTap: () {
           // ignore: avoid_print

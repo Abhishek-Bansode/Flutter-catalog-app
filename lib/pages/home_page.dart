@@ -1,8 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:convert';
 import 'package:flutter_catalog/models/catalog.dart';
-import 'package:flutter_catalog/widgets/drawer.dart';
+import 'package:flutter_catalog/widgets/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import '../widgets/home_widgets/catalog_List.dart';
+import '../widgets/home_widgets/catalog_header.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,10 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // final int days = 30;
-
-  // final String name = "Codepur";
-
   @override
   void initState() {
     super.initState();
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    // await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 5));
 
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
@@ -37,59 +38,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Catalog App"),
+      backgroundColor: MyTheme.creamColor,
+      body: SafeArea(
+        child: Container(
+          padding: Vx.m32,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CatalogHeader(),
+              if (CatalogModel.items.isNotEmpty)
+                const CatalogList().py16().expand()
+              else
+                const CircularProgressIndicator().centered().py16().expand(),
+            ],
+          ),
+        ),
       ),
-      body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: (CatalogModel.items.isNotEmpty)
-              ? GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
-                  ),
-                  itemBuilder: (context, index) {
-                    final item = CatalogModel.items[index];
-                    return Card(
-                        clipBehavior: Clip.antiAlias,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: GridTile(
-                            header: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: const BoxDecoration(
-                                color: Colors.deepPurple,
-                              ),
-                              child: Text(
-                                item.name,
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                            ),
-                            footer: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: const BoxDecoration(
-                                color: Colors.black,
-                              ),
-                              child: Text(
-                                item.price.toString(),
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                            ),
-                            child: Image.network(item.image)));
-                  },
-                  itemCount: CatalogModel.items.length)
-
-              //  ListView.builder(
-              //     itemCount: CatalogModel.items.length,
-              //     itemBuilder: (context, index) => ItemWidget(
-              //       item: CatalogModel.items[index],
-              //     ),
-              //   )
-              : const Center(
-                  child: CircularProgressIndicator(),
-                )),
-      drawer: const MyDrawer(),
     );
   }
 }
