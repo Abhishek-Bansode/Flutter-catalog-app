@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -31,14 +32,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      // color: Colors.white,
+      color: context.canvasColor,
+
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Column(
             children: [
-              Image.asset("assets/images/mobile_login_rafiki.png",
-                  fit: BoxFit.cover),
+              Image.asset("assets/images/hey.png", fit: BoxFit.cover),
               const SizedBox(
                 height: 20.0,
               ),
@@ -46,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 "Welcome $name",
                 style: const TextStyle(
                   fontSize: 28,
+                  // color: ,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -91,9 +94,8 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 30.0,
                     ),
-
                     Material(
-                      color: const Color.fromARGB(255, 103, 58, 183),
+                      color: Colors.deepPurple,
                       borderRadius:
                           BorderRadius.circular(changeButton ? 50 : 8),
                       child: InkWell(
@@ -122,15 +124,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     )
-
-                    // ElevatedButton(
-                    //   style:
-                    //       TextButton.styleFrom(minimumSize: const Size(150, 40)),
-                    //   onPressed: () {
-                    //     Navigator.pushNamed(context, MyRoutes.homeRoute);
-                    //   },
-                    //   child: const Text("Login"),
-                    // ),
                   ],
                 ),
               )
