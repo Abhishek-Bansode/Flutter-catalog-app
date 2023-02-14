@@ -7,8 +7,8 @@ ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColor.bodyColor,
     hintColor: AppColor.textColor,
     primaryColorLight: AppColor.buttonBackgroundColor,
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
         headline1: TextStyle(
             color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold)),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const  ButtonThemeData(
         textTheme: ButtonTextTheme.primary, buttonColor: Colors.black));
