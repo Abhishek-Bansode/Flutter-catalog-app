@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // home: const HomePage(),
-      
 
       themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
@@ -40,7 +39,6 @@ class MyApp extends StatelessWidget {
 
         // demo login page route only
         // MyRoutes.loginDemoRoute: (context) => const LoginDemoPage(),
-
       },
     );
   }
