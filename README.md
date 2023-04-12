@@ -1,8 +1,19 @@
-# flutter_catalog
+# Flutter Catalog App
 
-A new Flutter project.
 
 ## Getting Started
+
+This is a product catalog app developed using the Flutter framework. It displays various products with their images and details.
+
+## Installation
+To install and run this app on your local machine, follow these steps:
+
+Clone this repository to your local machine
+Install Flutter and any necessary dependencies
+Run flutter run to launch the app
+
+## Usage
+Once the app is running, you can browse through the various products and view their details. You can also search for specific products using the search bar.
 
 This project is a starting point for a Flutter application.
 
